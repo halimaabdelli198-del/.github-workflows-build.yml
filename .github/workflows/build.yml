@@ -19,11 +19,8 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Install Gradle
-        run: sudo apt-get update && sudo apt-get install -y gradle
-
-      - name: Generate Gradle Wrapper
-        run: gradle wrapper
+      - name: Make Gradle executable
+        run: chmod +x ./gradlew
 
       - name: Build APK with Gradle
         run: ./gradlew assembleDebug
@@ -33,5 +30,4 @@ jobs:
         with:
           name: app-debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
-          
           
